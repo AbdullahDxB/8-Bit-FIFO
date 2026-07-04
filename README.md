@@ -1,7 +1,7 @@
 <h1 align="center">8-Bit Synchronous FIFO</h1>
 
 <p align="center">
-  <b>RTL Design & Verification of a Parameterized Data Buffer</b>
+  <b>Parameterized RTL Design and Verification</b>
 </p>
 
 <p align="center">
@@ -12,23 +12,22 @@
 ---
 
 ## 🚀 Project Overview
-This repository contains the Verilog HDL implementation and testbench verification of a parameterized 8-bit Synchronous First-In-First-Out (FIFO) memory buffer. The design safely manages data flow between digital components operating on the same clock domain, utilizing sequential read/write pointers and combinational status flags to prevent data overwrite and underflow.
+This repository contains the Verilog implementation and testbench verification of an 8-bit Synchronous First-In-First-Out (FIFO) memory module. The design acts as a data buffer to safely manage data flow and backpressure between digital components operating on the same clock domain.
 
 ## 🏗️ Design Features
-* **Register File Memory:** Built using D flip-flops to safely buffer data streams.
-* **Synchronous Pointers:** Sequential read and write pointers that update synchronously with the shared clock edge.
-* **Overflow/Underflow Protection:** Accurate `full` and `empty` flag logic generated via Most Significant Bit (MSB) comparison.
-* **Parameterized Scaling:** Modular design allowing immediate adjustment of `DEPTH` and `DWIDTH` parameters.
+* **Parameterized Architecture:** Configurable memory depth (`DEPTH = 8`) and data width (`DWIDTH = 8`).
+* **Synchronous Operation:** Read and write operations are evaluated on the identical positive clock edge.
+* **Flag Generation:** Accurate `full` and `empty` flag logic utilizing Most Significant Bit (MSB) pointer comparison to prevent data overwrite and underflow.
+* **Robust Verification:** Testbench environment simulating randomized read/write bursts to stress-test flag bounds and memory integrity.
 
-## 📁 Directory Structure
-
-| Directory/File | Description |
-| :--- | :--- |
-| **`/src/sync_fifo.v`** | Core RTL Verilog implementation of the synchronous FIFO module. |
-| **`/sim/tb.v`** | Testbench environment utilizing automated randomized stimulus to test boundary conditions. |
+## 📁 Repository Structure
+Click the files below to view the source code:
+* **Design:** [`/src/sync_fifo.v`](src/sync_fifo.v) - Core RTL implementation of the FIFO module.
+* **Simulation:** [`/sim/tb.v`](sim/tb.v) - Testbench with randomized stimulus and automated halting logic.
 
 ## 🛠️ Tools Used
-* **Design Language:** Verilog
-* **Simulation & Verification:** Xilinx Vivado
+* **Hardware Description Language:** Verilog HDL
+* **Simulation & Verification:** Xilinx Vivado Simulator (XSIM)
+* **Design Paradigm:** Register Transfer Level (RTL)
 
 ---
